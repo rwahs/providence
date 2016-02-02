@@ -1022,21 +1022,21 @@
             <placement code="idno">
               <bundle>idno</bundle>
               <settings>
-
+                <setting name="label" locale="en_AU">Accession ID</setting>
               </settings>
             </placement>
             <placement code="preferred_labels">
               <bundle>preferred_labels</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Title</setting>
+                <setting name="add_label" locale="en_AU">Add title</setting>
               </settings>
             </placement>
             <placement code="nonpreferred_labels">
               <bundle>nonpreferred_labels</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Alternate titles</setting>
+                <setting name="add_label" locale="en_AU">Add name</setting>
               </settings>
             </placement>
             <placement code="ca_attribute_date">
@@ -1126,16 +1126,16 @@
             <placement code="ca_list_items">
               <bundle>ca_list_items</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">CA Custom Subject Authority</setting>
+                <setting name="add_label" locale="en_AU">Add new subject</setting>
                 <setting name="width">500px</setting>
               </settings>
             </placement>
             <placement code="ca_attribute_lcsh_terms">
               <bundle>ca_attribute_lcsh_terms</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Library of Congress Subject Headings</setting>
+                <setting name="add_label" locale="en_AU">Add new subject heading</setting>
               </settings>
             </placement>
           </bundlePlacements>
@@ -1169,35 +1169,35 @@
               <bundle>ca_entities</bundle>
               <settings>
                 <setting name="restrict_to_relationship_types">creator</setting>
-
+                <setting name="label" locale="en_AU">Creator(s)</setting>
               </settings>
             </placement>
             <placement code="ca_contributor">
               <bundle>ca_entities</bundle>
               <settings>
                 <setting name="restrict_to_relationship_types">contributor</setting>
-
+                <setting name="label" locale="en_AU">Contributor(s)</setting>
               </settings>
             </placement>
             <placement code="ca_publisher">
               <bundle>ca_entities</bundle>
               <settings>
                 <setting name="restrict_to_relationship_types">publisher</setting>
-
+                <setting name="label" locale="en_AU">Publisher</setting>
               </settings>
             </placement>
             <placement code="ca_source">
               <bundle>ca_objects</bundle>
               <settings>
                 <setting name="restrict_to_relationship_types">source</setting>
-
+                <setting name="label" locale="en_AU">Source</setting>
               </settings>
             </placement>
             <placement code="ca_events">
               <bundle>ca_occurrences</bundle>
               <settings>
                 <setting name="restrict_to_type">event</setting>
-
+                <setting name="label" locale="en_AU">Related events</setting>
               </settings>
             </placement>
             <placement code="ca_places">
@@ -1287,8 +1287,8 @@
             <placement code="nonpreferred_labels">
               <bundle>nonpreferred_labels</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Alternate names</setting>
+                <setting name="add_label" locale="en_AU">Add name</setting>
               </settings>
             </placement>
           </bundlePlacements>
@@ -1331,7 +1331,7 @@
               <bundle>ca_occurrences</bundle>
               <settings>
                 <setting name="restrict_to_type">event</setting>
-
+                <setting name="label" locale="en_AU">Related events</setting>
               </settings>
             </placement>
             <placement code="ca_places">
@@ -1379,8 +1379,8 @@
             <placement code="preferred_labels">
               <bundle>preferred_labels</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Name</setting>
+                <setting name="add_label" locale="en_AU">Add name</setting>
               </settings>
             </placement>
             <placement code="idno">
@@ -1446,8 +1446,8 @@
             <placement code="nonpreferred_labels">
               <bundle>nonpreferred_labels</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Alternate names</setting>
+                <setting name="add_label" locale="en_AU">Add alternate name</setting>
               </settings>
             </placement>
           </bundlePlacements>
@@ -1501,8 +1501,8 @@
             <placement code="nonpreferred_labels">
               <bundle>nonpreferred_labels</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Alternate names</setting>
+                <setting name="add_label" locale="en_AU">Add name</setting>
               </settings>
             </placement>
           </bundlePlacements>
@@ -1524,7 +1524,7 @@
               <bundle>ca_occurrences</bundle>
               <settings>
                 <setting name="restrict_to_type">event</setting>
-
+                <setting name="label" locale="en_AU">Related events</setting>
               </settings>
             </placement>
             <placement code="ca_places">
@@ -1548,8 +1548,8 @@
             <placement code="ca_attribute_lcsh_terms">
               <bundle>ca_attribute_lcsh_terms</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Library of Congress Subject Headings</setting>
+                <setting name="add_label" locale="en_AU">Add new subject heading</setting>
               </settings>
             </placement>
             <placement code="ca_attribute_subject">
@@ -1588,8 +1588,8 @@
             <placement code="preferred_labels">
               <bundle>preferred_labels</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Title</setting>
+                <setting name="add_label" locale="en_AU">Add title</setting>
               </settings>
             </placement>
             <placement code="idno">
@@ -1619,8 +1619,8 @@
             <placement code="nonpreferred_labels">
               <bundle>nonpreferred_labels</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Alternate names</setting>
+                <setting name="add_label" locale="en_AU">Add name</setting>
               </settings>
             </placement>
           </bundlePlacements>
@@ -1642,7 +1642,7 @@
               <bundle>ca_occurrences</bundle>
               <settings>
                 <setting name="restrict_to_type">event</setting>
-
+                <setting name="label" locale="en_AU">Related events</setting>
               </settings>
             </placement>
             <placement code="ca_places">
@@ -1666,8 +1666,8 @@
             <placement code="ca_attribute_lcsh_terms">
               <bundle>ca_attribute_lcsh_terms</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Library of Congress Subject Headings</setting>
+                <setting name="add_label" locale="en_AU">Add new subject heading</setting>
               </settings>
             </placement>
             <placement code="ca_attribute_subject">
@@ -1697,8 +1697,8 @@
             <placement code="preferred_labels">
               <bundle>preferred_labels</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Name</setting>
+                <setting name="add_label" locale="en_AU">Add name</setting>
               </settings>
             </placement>
             <placement code="idno">
@@ -1752,8 +1752,8 @@
             <placement code="nonpreferred_labels">
               <bundle>nonpreferred_labels</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Alternate names</setting>
+                <setting name="add_label" locale="en_AU">Add name</setting>
               </settings>
             </placement>
           </bundlePlacements>
@@ -1777,14 +1777,14 @@
             <placement code="preferred_labels">
               <bundle>preferred_labels</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Lot title</setting>
+                <setting name="add_label" locale="en_AU">Add lot title</setting>
               </settings>
             </placement>
             <placement code="idno_stub">
               <bundle>idno_stub</bundle>
               <settings>
-
+                <setting name="label" locale="en_AU">Lot number</setting>
               </settings>
             </placement>
             <placement code="lot_status_id">
@@ -1844,8 +1844,8 @@
             <placement code="nonpreferred_labels">
               <bundle>nonpreferred_labels</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Alternate lot titles</setting>
+                <setting name="add_label" locale="en_AU">Add lot title</setting>
               </settings>
             </placement>
           </bundlePlacements>
@@ -1869,8 +1869,8 @@
             <placement code="preferred_labels">
               <bundle>preferred_labels</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Title</setting>
+                <setting name="add_label" locale="en_AU">Add title</setting>
               </settings>
             </placement>
             <placement code="media">
@@ -1933,8 +1933,8 @@
             <placement code="nonpreferred_labels">
               <bundle>nonpreferred_labels</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Alternate names</setting>
+                <setting name="add_label" locale="en_AU">Add name</setting>
               </settings>
             </placement>
           </bundlePlacements>
@@ -1959,8 +1959,8 @@
             <placement code="preferred_labels">
               <bundle>preferred_labels</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Title</setting>
+                <setting name="add_label" locale="en_AU">Add title</setting>
               </settings>
             </placement>
             <placement code="ca_representation_annotation_properties">
@@ -2017,8 +2017,8 @@
             <placement code="nonpreferred_labels">
               <bundle>nonpreferred_labels</bundle>
               <settings>
-
-
+                <setting name="label" locale="en_AU">Alternate names</setting>
+                <setting name="add_label" locale="en_AU">Add name</setting>
               </settings>
             </placement>
           </bundlePlacements>
@@ -2037,7 +2037,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="publisher" default="0">
           <labels>
@@ -2047,7 +2047,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="contributor" default="0">
           <labels>
@@ -2057,7 +2057,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="source" default="0">
           <labels>
@@ -2067,7 +2067,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2101,7 +2101,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2115,7 +2115,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2129,7 +2129,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="source" default="0">
           <labels>
@@ -2139,7 +2139,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="duplicate" default="0">
           <labels>
@@ -2149,7 +2149,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="part_of" default="0">
           <labels>
@@ -2159,7 +2159,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2186,8 +2186,8 @@
               <typename_reverse>is related to</typename_reverse>
             </label>
           </labels>
-          <subTypeLeft/>
-          <subTypeRight/>
+          <subTypeLeft></subTypeLeft>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2201,7 +2201,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="located" default="0">
           <labels>
@@ -2211,7 +2211,7 @@
             </label>
           </labels>
           <subTypeLeft>image</subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="depicts" default="1">
           <labels>
@@ -2221,7 +2221,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="describes" default="0">
           <labels>
@@ -2231,7 +2231,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2245,7 +2245,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="depicts" default="0">
           <labels>
@@ -2255,7 +2255,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2269,7 +2269,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2283,7 +2283,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="residence" default="0">
           <labels>
@@ -2293,7 +2293,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="workplace" default="0">
           <labels>
@@ -2303,7 +2303,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="ownership" default="0">
           <labels>
@@ -2313,7 +2313,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="built_by" default="0">
           <labels>
@@ -2323,7 +2323,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2351,7 +2351,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="provider" default="0">
           <labels>
@@ -2361,7 +2361,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2375,7 +2375,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2389,7 +2389,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2403,7 +2403,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2417,7 +2417,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2431,7 +2431,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2445,7 +2445,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2459,7 +2459,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2473,7 +2473,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2501,7 +2501,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2515,7 +2515,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2529,7 +2529,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2543,7 +2543,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2557,7 +2557,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="illustrated" default="1">
           <labels>
@@ -2567,7 +2567,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2581,7 +2581,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="describes" default="1">
           <labels>
@@ -2591,7 +2591,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2605,7 +2605,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
         <type code="describes" default="1">
           <labels>
@@ -2615,7 +2615,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2653,7 +2653,7 @@
             </label>
           </labels>
           <subTypeLeft> </subTypeLeft>
-          <subTypeRight/>
+          <subTypeRight></subTypeRight>
         </type>
       </types>
     </relationshipTable>
@@ -2688,7 +2688,7 @@
           <bundle>ca_entities</bundle>
           <settings>
             <setting name="restrict_to_relationship_types">creator</setting>
-
+            <setting name="label" locale="en_AU">Creator(s)</setting>
           </settings>
         </placement>
         <placement code="subject">
@@ -2701,14 +2701,14 @@
           <bundle>ca_entities</bundle>
           <settings>
             <setting name="restrict_to_relationship_types">publisher</setting>
-
+            <setting name="label" locale="en_AU">Publisher(s)</setting>
           </settings>
         </placement>
         <placement code="contributor">
           <bundle>ca_entities</bundle>
           <settings>
             <setting name="restrict_to_relationship_types">contributor</setting>
-
+            <setting name="label" locale="en_AU">Contributor(s)</setting>
           </settings>
         </placement>
         <placement code="date">
@@ -2798,6 +2798,7 @@
         <placement code="preferred_labels">
           <bundle>ca_object_labels.name</bundle>
           <settings>
+            <setting name="label" locale="en_AU">Title</setting>
           </settings>
         </placement>
         <placement code="idno">
@@ -2817,7 +2818,39 @@
         </placement>
       </bundlePlacements>
     </searchForm>
-
+    <searchForm code="ca_entities_adv_search" type="ca_entities" system="1">
+      <labels>
+        <label locale="en_AU">
+          <name>Extended search</name>
+        </label>
+      </labels>
+      <settings>
+        <setting name="form_width">3</setting>
+      </settings>
+      <bundlePlacements>
+        <placement code="forename">
+          <bundle>ca_entity_labels.forename</bundle>
+        </placement>
+        <placement code="middlename">
+          <bundle>ca_entity_labels.middlename</bundle>
+        </placement>
+        <placement code="surname">
+          <bundle>ca_entity_labels.surname</bundle>
+        </placement>
+        <placement code="idno">
+          <bundle>ca_entities.idno</bundle>
+        </placement>
+        <placement code="type_id">
+          <bundle>ca_entities.type_id</bundle>
+        </placement>
+        <placement code="access">
+          <bundle>ca_entities.access</bundle>
+        </placement>
+        <placement code="status">
+          <bundle>ca_entities.status</bundle>
+        </placement>
+      </bundlePlacements>
+    </searchForm>
     <searchForm code="ca_places_adv_search" type="ca_places" system="1">
       <labels>
         <label locale="en_AU">
@@ -2845,7 +2878,33 @@
         </placement>
       </bundlePlacements>
     </searchForm>
-
+    <searchForm code="ca_occurrences_adv_search" type="ca_occurrences" system="1">
+      <labels>
+        <label locale="en_AU">
+          <name>Extended search</name>
+        </label>
+      </labels>
+      <settings>
+        <setting name="form_width">3</setting>
+      </settings>
+      <bundlePlacements>
+        <placement code="forename">
+          <bundle>ca_occurrence_labels.name</bundle>
+          <settings>
+            <setting name="label" locale="en_AU">Title</setting>
+          </settings>
+        </placement>
+        <placement code="idno">
+          <bundle>ca_occurrences.idno</bundle>
+        </placement>
+        <placement code="access">
+          <bundle>ca_places.access</bundle>
+        </placement>
+        <placement code="status">
+          <bundle>ca_places.status</bundle>
+        </placement>
+      </bundlePlacements>
+    </searchForm>
     <searchForm code="ca_collections_adv_search" type="ca_collections" system="1">
       <labels>
         <label locale="en_AU">
