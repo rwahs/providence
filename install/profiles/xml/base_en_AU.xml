@@ -3,7 +3,7 @@
   <profileDescription>This profile defines standard system values and is intended to be used as a base for other profiles.</profileDescription>
   <locales><locale lang="en" country="AU">English (Australian)</locale></locales>
   <lists>
-    <list code="list_item_types" hierarchical="0" system="0" vocabulary="0">
+    <list code="list_item_types" hierarchical="0" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>List item types</name>
         </label></labels>
@@ -34,7 +34,7 @@
         </item>
       </items>
     </list>
-    <list code="list_item_sources" hierarchical="1" system="0" vocabulary="0">
+    <list code="list_item_sources" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>List item sources</name>
         </label></labels>
@@ -47,7 +47,7 @@
         </item>
       </items>
     </list>
-    <list code="list_item_label_types" hierarchical="1" system="0" vocabulary="0">
+    <list code="list_item_label_types" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>List item label types</name>
         </label></labels>
@@ -66,7 +66,7 @@
         </item>
       </items>
     </list>
-    <list code="set_types" hierarchical="1" system="0" vocabulary="0">
+    <list code="set_types" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Set types</name>
         </label></labels>
@@ -85,7 +85,7 @@
         </item>
       </items>
     </list>
-    <list code="set_presentation_types" hierarchical="1" system="0" vocabulary="0">
+    <list code="set_presentation_types" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Set presentation types</name>
         </label></labels>
@@ -116,7 +116,7 @@
         </item>
       </items>
     </list>
-    <list code="set_item_is_primary" hierarchical="1" system="0" vocabulary="0">
+    <list code="set_item_is_primary" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Set item primary status types</name>
         </label></labels>
@@ -135,19 +135,19 @@
         </item>
       </items>
     </list>
-    <list code="object_types" hierarchical="1" system="0" vocabulary="0">
+    <list code="object_types" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Object types</name>
         </label></labels>
       <items/>
     </list>
-    <list code="object_sources" hierarchical="1" system="0" vocabulary="0">
+    <list code="object_sources" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Object sources</name>
         </label></labels>
       <items/>
     </list>
-    <list code="object_statuses" hierarchical="0" system="0" vocabulary="0">
+    <list code="object_statuses" hierarchical="0" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Object statuses</name>
         </label></labels>
@@ -178,7 +178,7 @@
         </item>
       </items>
     </list>
-    <list code="object_deaccession_types" hierarchical="0" system="0" vocabulary="0">
+    <list code="object_deaccession_types" hierarchical="0" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Object deaccession types</name>
         </label></labels>
@@ -191,7 +191,7 @@
         </item>
       </items>
     </list>
-    <list code="object_acq_types" hierarchical="0" system="0" vocabulary="0">
+    <list code="object_acq_types" hierarchical="0" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Object acquisition types</name>
         </label></labels>
@@ -228,7 +228,7 @@
         </item>
       </items>
     </list>
-    <list code="object_label_types" hierarchical="0" system="0" vocabulary="0">
+    <list code="object_label_types" hierarchical="0" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Object label types</name>
         </label></labels>
@@ -247,7 +247,7 @@
         </item>
       </items>
     </list>
-    <list code="workflow_statuses" hierarchical="0" system="0" vocabulary="0">
+    <list code="workflow_statuses" hierarchical="0" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Object workflow statuses</name>
         </label></labels>
@@ -284,7 +284,7 @@
         </item>
       </items>
     </list>
-    <list code="access_statuses" hierarchical="0" system="0" vocabulary="0">
+    <list code="access_statuses" hierarchical="0" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Object access statuses</name>
         </label></labels>
@@ -309,7 +309,7 @@
         </item>
       </items>
     </list>
-    <list code="object_lot_types" hierarchical="1" system="0" vocabulary="0">
+    <list code="object_lot_types" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Object lot types</name>
         </label></labels>
@@ -352,13 +352,13 @@
         </item>
       </items>
     </list>
-    <list code="object_lot_sources" hierarchical="1" system="0" vocabulary="0">
+    <list code="object_lot_sources" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Object lot sources</name>
         </label></labels>
       <items/>
     </list>
-    <list code="object_lot_statuses" hierarchical="0" system="0" vocabulary="0">
+    <list code="object_lot_statuses" hierarchical="0" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Object lot statuses</name>
         </label></labels>
@@ -389,7 +389,7 @@
         </item>
       </items>
     </list>
-    <list code="object_lot_label_types" hierarchical="0" system="0" vocabulary="0">
+    <list code="object_lot_label_types" hierarchical="0" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Object lot label type values</name>
         </label></labels>
@@ -408,7 +408,7 @@
         </item>
       </items>
     </list>
-    <list code="loan_types" hierarchical="0" system="0" vocabulary="0">
+    <list code="loan_types" hierarchical="0" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Loan label type values</name>
         </label></labels>
@@ -427,13 +427,13 @@
         </item>
       </items>
     </list>
-    <list code="loan_sources" hierarchical="1" system="0" vocabulary="0">
+    <list code="loan_sources" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Loan sources</name>
         </label></labels>
       <items/>
     </list>
-    <list code="movement_types" hierarchical="0" system="0" vocabulary="0">
+    <list code="movement_types" hierarchical="0" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Movement type values</name>
         </label></labels>
@@ -446,25 +446,25 @@
         </item>
       </items>
     </list>
-    <list code="movement_sources" hierarchical="1" system="0" vocabulary="0">
+    <list code="movement_sources" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Movement sources</name>
         </label></labels>
       <items/>
     </list>
-    <list code="entity_types" hierarchical="1" system="0" vocabulary="0">
+    <list code="entity_types" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Entity types</name>
         </label></labels>
       <items/>
     </list>
-    <list code="entity_sources" hierarchical="1" system="0" vocabulary="0">
+    <list code="entity_sources" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Entity sources</name>
         </label></labels>
       <items/>
     </list>
-    <list code="entity_label_types" hierarchical="0" system="0" vocabulary="0">
+    <list code="entity_label_types" hierarchical="0" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Entity label types</name>
         </label></labels>
@@ -483,7 +483,7 @@
         </item>
       </items>
     </list>
-    <list code="place_types" hierarchical="1" system="0" vocabulary="0">
+    <list code="place_types" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Place types</name>
         </label></labels>
@@ -550,7 +550,7 @@
         </item>
       </items>
     </list>
-    <list code="place_label_types" hierarchical="0" system="0" vocabulary="0">
+    <list code="place_label_types" hierarchical="0" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Place label type values</name>
         </label></labels>
@@ -572,19 +572,19 @@
         </item>
       </items>
     </list>
-    <list code="place_sources" hierarchical="1" system="0" vocabulary="0">
+    <list code="place_sources" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Place sources</name>
         </label></labels>
       <items/>
     </list>
-    <list code="occurrence_types" hierarchical="1" system="0" vocabulary="0">
+    <list code="occurrence_types" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Occurrence types</name>
         </label></labels>
       <items/>
     </list>
-    <list code="occurrence_label_types" hierarchical="0" system="0" vocabulary="0">
+    <list code="occurrence_label_types" hierarchical="0" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Occurrence label types</name>
         </label></labels>
@@ -603,25 +603,25 @@
         </item>
       </items>
     </list>
-    <list code="occurrence_sources" hierarchical="1" system="0" vocabulary="0">
+    <list code="occurrence_sources" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Occurrence sources</name>
         </label></labels>
       <items/>
     </list>
-    <list code="collection_types" hierarchical="1" system="0" vocabulary="0">
+    <list code="collection_types" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Collection types</name>
         </label></labels>
       <items/>
     </list>
-    <list code="collection_sources" hierarchical="1" system="0" vocabulary="0">
+    <list code="collection_sources" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Collection sources</name>
         </label></labels>
       <items/>
     </list>
-    <list code="collection_label_types" hierarchical="0" system="0" vocabulary="0">
+    <list code="collection_label_types" hierarchical="0" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Collection label types</name>
         </label></labels>
@@ -640,19 +640,19 @@
         </item>
       </items>
     </list>
-    <list code="storage_location_types" hierarchical="1" system="0" vocabulary="0">
+    <list code="storage_location_types" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Storage location types</name>
         </label></labels>
       <items/>
     </list>
-    <list code="storage_location_sources" hierarchical="1" system="0" vocabulary="0">
+    <list code="storage_location_sources" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Storage location sources</name>
         </label></labels>
       <items/>
     </list>
-    <list code="storage_location_label_types" hierarchical="0" system="0" vocabulary="0">
+    <list code="storage_location_label_types" hierarchical="0" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Storage location label type values</name>
         </label></labels>
@@ -671,7 +671,7 @@
         </item>
       </items>
     </list>
-    <list code="object_representation_types" hierarchical="1" system="0" vocabulary="0">
+    <list code="object_representation_types" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Object representation types</name>
         </label></labels>
@@ -690,13 +690,13 @@
         </item>
       </items>
     </list>
-    <list code="object_representation_sources" hierarchical="1" system="0" vocabulary="0">
+    <list code="object_representation_sources" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Object representation sources</name>
         </label></labels>
       <items/>
     </list>
-    <list code="tour_types" hierarchical="1" system="0" vocabulary="0">
+    <list code="tour_types" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Tour types</name>
         </label></labels>
@@ -715,13 +715,13 @@
         </item>
     </items>
     </list>
-    <list code="tour_sources" hierarchical="1" system="0" vocabulary="0">
+    <list code="tour_sources" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Tour sources</name>
         </label></labels>
       <items/>
     </list>
-    <list code="tour_stop_types" hierarchical="1" system="0" vocabulary="0">
+    <list code="tour_stop_types" hierarchical="1" system="1" vocabulary="0">
       <labels><label locale="en_AU">
           <name>Tour stop types</name>
         </label></labels>
