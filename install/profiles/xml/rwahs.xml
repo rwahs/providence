@@ -71,6 +71,55 @@
         </item>
       </items>
     </list>
+    <list code="object_acq_types" hierarchical="0" system="1" vocabulary="0">
+      <labels><label locale="en_AU">
+        <name>Object acquisition types</name>
+      </label></labels>
+      <items>
+        <item idno="bequest" enabled="1" default="1">
+          <labels><label locale="en_AU" preferred="1">
+            <name_singular>Bequest</name_singular>
+            <name_plural>Bequests</name_plural>
+          </label></labels>
+        </item>
+        <item idno="donation" enabled="1" default="0">
+          <labels><label locale="en_AU" preferred="1">
+            <name_singular>Donation</name_singular>
+            <name_plural>Donations</name_plural>
+          </label></labels>
+        </item>
+        <item idno="internal" enabled="1" default="0">
+          <labels><label locale="en_AU" preferred="1">
+            <name_singular>Internal</name_singular>
+            <name_plural>Internal</name_plural>
+          </label></labels>
+        </item>
+        <item idno="purchase" enabled="1" default="0">
+          <labels><label locale="en_AU" preferred="1">
+            <name_singular>Purchase</name_singular>
+            <name_plural>Purchases</name_plural>
+          </label></labels>
+        </item>
+        <item idno="salvage" enabled="1" default="0">
+          <labels><label locale="en_AU" preferred="1">
+            <name_singular>Salvage</name_singular>
+            <name_plural>Salvage</name_plural>
+          </label></labels>
+        </item>
+        <item idno="unknown" enabled="1" default="0">
+          <labels><label locale="en_AU" preferred="1">
+            <name_singular>Unknown</name_singular>
+            <name_plural>Unknown</name_plural>
+          </label></labels>
+        </item>
+        <item idno="other" enabled="1" default="0">
+          <labels><label locale="en_AU" preferred="1">
+            <name_singular>Other</name_singular>
+            <name_plural>Other</name_plural>
+          </label></labels>
+        </item>
+      </items>
+    </list>
     <list code="entity_types" hierarchical="1" system="1" vocabulary="0">
       <labels>
         <label locale="en_AU">
@@ -1009,7 +1058,7 @@
         </label>
       </labels>
       <screens>
-        <screen idno="basic" default="1">
+        <screen idno="administrationData" default="1">
           <labels>
             <label locale="en_AU">
               <name>Administration Data Entry Form</name>
@@ -1019,10 +1068,19 @@
             <placement code="ca_attribute_itemType">
               <bundle>ca_attribute_itemType</bundle>
             </placement>
+            <placement code="type_id">
+              <bundle>type_id</bundle>
+            </placement>
             <placement code="idno">
               <bundle>idno</bundle>
               <settings>
                 <setting name="label" locale="en_AU">Accession ID</setting>
+              </settings>
+            </placement>
+            <placement code="acquisition_type_id">
+              <bundle>acquisition_type_id</bundle>
+              <settings>
+                <setting name="label" locale="en_AU">Method of Acquisition</setting>
               </settings>
             </placement>
             <placement code="preferred_labels">
