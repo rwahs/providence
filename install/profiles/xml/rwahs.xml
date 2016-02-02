@@ -478,6 +478,7 @@
             <setting name="minAttributesPerRow">1</setting>
             <setting name="maxAttributesPerRow">1</setting>
             <setting name="minimumAttributeBundlesToDisplay">1</setting>
+            <setting name="nullOptionText">Not Set</setting>
           </settings>
         </restriction>
       </typeRestrictions>
@@ -1051,12 +1052,15 @@
     </metadataElement>
   </elementSets>
   <userInterfaces>
-    <userInterface code="standard_object_ui" type="ca_objects">
+    <userInterface code="museum_object_ui" type="ca_objects">
       <labels>
         <label locale="en_AU">
-          <name>Standard object editor</name>
+          <name>Museum object editor</name>
         </label>
       </labels>
+      <typeRestrictions>
+        <restriction type="museum"/>
+      </typeRestrictions>
       <screens>
         <screen idno="administrationData" default="1">
           <labels>
@@ -1096,209 +1100,6 @@
                 <setting name="label" locale="en_AU">Alternate titles</setting>
                 <setting name="add_label" locale="en_AU">Add name</setting>
               </settings>
-            </placement>
-            <placement code="ca_attribute_date">
-              <bundle>ca_attribute_date</bundle>
-            </placement>
-            <placement code="ca_attribute_description">
-              <bundle>ca_attribute_description</bundle>
-            </placement>
-            <placement code="ca_attribute_description_source">
-              <bundle>ca_attribute_description_source</bundle>
-            </placement>
-            <placement code="ca_attribute_language">
-              <bundle>ca_attribute_language</bundle>
-            </placement>
-          </bundlePlacements>
-        </screen>
-        <screen idno="coverage" default="0">
-          <labels>
-            <label locale="en_AU">
-              <name>Coverage</name>
-            </label>
-          </labels>
-          <bundlePlacements>
-            <placement code="ca_attribute_georeference">
-              <bundle>ca_attribute_georeference</bundle>
-            </placement>
-            <placement code="ca_attribute_coverageDates">
-              <bundle>ca_attribute_coverageDates</bundle>
-            </placement>
-            <placement code="ca_attribute_coverageNotes">
-              <bundle>ca_attribute_coverageNotes</bundle>
-            </placement>
-          </bundlePlacements>
-        </screen>
-        <screen idno="format" default="0">
-          <labels>
-            <label locale="en_AU">
-              <name>Format</name>
-            </label>
-          </labels>
-          <bundlePlacements>
-            <placement code="ca_attribute_audio_format">
-              <bundle>ca_attribute_audio_format</bundle>
-            </placement>
-            <placement code="ca_attribute_video_format">
-              <bundle>ca_attribute_video_format</bundle>
-            </placement>
-            <placement code="ca_attribute_text_format">
-              <bundle>ca_attribute_text_format</bundle>
-            </placement>
-            <placement code="ca_attribute_image_format">
-              <bundle>ca_attribute_image_format</bundle>
-            </placement>
-            <placement code="ca_attribute_gen_format">
-              <bundle>ca_attribute_gen_format</bundle>
-            </placement>
-            <placement code="ca_attribute_dimensions">
-              <bundle>ca_attribute_dimensions</bundle>
-            </placement>
-            <placement code="ca_attribute_duration">
-              <bundle>ca_attribute_duration</bundle>
-            </placement>
-            <placement code="ca_attribute_formatNotes">
-              <bundle>ca_attribute_formatNotes</bundle>
-            </placement>
-          </bundlePlacements>
-        </screen>
-        <screen idno="rights" default="0">
-          <labels>
-            <label locale="en_AU">
-              <name>Rights</name>
-            </label>
-          </labels>
-          <bundlePlacements>
-            <placement code="ca_attribute_rights">
-              <bundle>ca_attribute_rights</bundle>
-            </placement>
-          </bundlePlacements>
-        </screen>
-        <screen idno="subjects" default="0">
-          <labels>
-            <label locale="en_AU">
-              <name>Subjects</name>
-            </label>
-          </labels>
-          <bundlePlacements>
-            <placement code="ca_list_items">
-              <bundle>ca_list_items</bundle>
-              <settings>
-                <setting name="label" locale="en_AU">CA Custom Subject Authority</setting>
-                <setting name="add_label" locale="en_AU">Add new subject</setting>
-                <setting name="width">500px</setting>
-              </settings>
-            </placement>
-            <placement code="ca_attribute_lcsh_terms">
-              <bundle>ca_attribute_lcsh_terms</bundle>
-              <settings>
-                <setting name="label" locale="en_AU">Library of Congress Subject Headings</setting>
-                <setting name="add_label" locale="en_AU">Add new subject heading</setting>
-              </settings>
-            </placement>
-          </bundlePlacements>
-        </screen>
-        <screen idno="media" default="0">
-          <labels>
-            <label locale="en_AU">
-              <name>Media</name>
-            </label>
-          </labels>
-          <bundlePlacements>
-            <placement code="ca_object_representations">
-              <bundle>ca_object_representations</bundle>
-            </placement>
-          </bundlePlacements>
-        </screen>
-        <screen idno="relationships" default="0">
-          <labels>
-            <label locale="en_AU">
-              <name>Relationships</name>
-            </label>
-          </labels>
-          <bundlePlacements>
-            <placement code="ca_objects">
-              <bundle>ca_objects</bundle>
-            </placement>
-            <placement code="ca_object_lots">
-              <bundle>ca_object_lots</bundle>
-            </placement>
-            <placement code="ca_creator">
-              <bundle>ca_entities</bundle>
-              <settings>
-                <setting name="restrict_to_relationship_types">creator</setting>
-                <setting name="label" locale="en_AU">Creator(s)</setting>
-              </settings>
-            </placement>
-            <placement code="ca_contributor">
-              <bundle>ca_entities</bundle>
-              <settings>
-                <setting name="restrict_to_relationship_types">contributor</setting>
-                <setting name="label" locale="en_AU">Contributor(s)</setting>
-              </settings>
-            </placement>
-            <placement code="ca_publisher">
-              <bundle>ca_entities</bundle>
-              <settings>
-                <setting name="restrict_to_relationship_types">publisher</setting>
-                <setting name="label" locale="en_AU">Publisher</setting>
-              </settings>
-            </placement>
-            <placement code="ca_source">
-              <bundle>ca_objects</bundle>
-              <settings>
-                <setting name="restrict_to_relationship_types">source</setting>
-                <setting name="label" locale="en_AU">Source</setting>
-              </settings>
-            </placement>
-            <placement code="ca_events">
-              <bundle>ca_occurrences</bundle>
-              <settings>
-                <setting name="restrict_to_type">event</setting>
-                <setting name="label" locale="en_AU">Related events</setting>
-              </settings>
-            </placement>
-            <placement code="ca_places">
-              <bundle>ca_places</bundle>
-            </placement>
-            <placement code="ca_collections">
-              <bundle>ca_collections</bundle>
-            </placement>
-            <placement code="ca_storage_locations">
-              <bundle>ca_storage_locations</bundle>
-            </placement>
-            <placement code="ca_loans">
-              <bundle>ca_loans</bundle>
-            </placement>
-          </bundlePlacements>
-        </screen>
-        <screen idno="links" default="0">
-          <labels>
-            <label locale="en_AU">
-              <name>Links</name>
-            </label>
-          </labels>
-          <bundlePlacements>
-            <placement code="ca_attribute_external_link">
-              <bundle>ca_attribute_external_link</bundle>
-            </placement>
-          </bundlePlacements>
-        </screen>
-        <screen idno="admin" default="0">
-          <labels>
-            <label locale="en_AU">
-              <name>Admin info</name>
-            </label>
-          </labels>
-          <bundlePlacements>
-            <placement code="hierarchy_location">
-              <bundle>hierarchy_location</bundle>
-            </placement>
-            <placement code="status">
-              <bundle>status</bundle>
-            </placement>
-            <placement code="access">
-              <bundle>access</bundle>
             </placement>
           </bundlePlacements>
         </screen>
