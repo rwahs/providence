@@ -1090,6 +1090,10 @@
       <typeRestrictions>
         <restriction type="museum"/>
       </typeRestrictions>
+      <groupAccess>
+        <permission group="admin" access="edit"/>
+        <permission group="museum" access="edit"/>
+      </groupAccess>
       <screens>
         <screen idno="administrationData" default="1">
           <labels>
@@ -2910,6 +2914,9 @@
       <role code="cataloguer"/>
       <group code="museum"/>
       <group code="cataloguer"/>
+    </login>
+    <login user_name="researcher" password="researcher" fname="Researcher" lname="User" email="researcher@rwahs.org.au">
+      <role code="researcher"/>
     </login>
   </logins>
 </profile>
