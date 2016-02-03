@@ -1100,7 +1100,7 @@
             </placement>
           </bundlePlacements>
         </screen>
-        <screen idno="itemData" default="1">
+        <screen idno="itemData" default="0">
           <labels>
             <label locale="en_AU">
               <name>Item Data</name>
@@ -1118,7 +1118,7 @@
             </placement>
           </bundlePlacements>
         </screen>
-        <screen idno="conservation" default="1">
+        <screen idno="conservation" default="0">
           <labels>
             <label locale="en_AU">
               <name>Conservation</name>
