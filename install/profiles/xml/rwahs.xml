@@ -471,6 +471,10 @@
           <name>Item Type</name>
         </label>
       </labels>
+      <settings>
+        <setting name="nullOptionText">Not Set</setting>
+        <setting name="requireValue">0</setting>
+      </settings>
       <typeRestrictions>
         <restriction code="r1">
           <table>ca_objects</table>
@@ -478,7 +482,6 @@
             <setting name="minAttributesPerRow">1</setting>
             <setting name="maxAttributesPerRow">1</setting>
             <setting name="minimumAttributeBundlesToDisplay">1</setting>
-            <setting name="nullOptionText">Not Set</setting>
           </settings>
         </restriction>
       </typeRestrictions>
@@ -1082,20 +1085,6 @@
               <bundle>acquisition_type_id</bundle>
               <settings>
                 <setting name="label" locale="en_AU">Method of Acquisition</setting>
-              </settings>
-            </placement>
-            <placement code="preferred_labels">
-              <bundle>preferred_labels</bundle>
-              <settings>
-                <setting name="label" locale="en_AU">Title</setting>
-                <setting name="add_label" locale="en_AU">Add title</setting>
-              </settings>
-            </placement>
-            <placement code="nonpreferred_labels">
-              <bundle>nonpreferred_labels</bundle>
-              <settings>
-                <setting name="label" locale="en_AU">Alternate titles</setting>
-                <setting name="add_label" locale="en_AU">Add name</setting>
               </settings>
             </placement>
           </bundlePlacements>
