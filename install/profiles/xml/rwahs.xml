@@ -44,6 +44,32 @@
               <name_plural>Museum Records</name_plural>
             </label>
           </labels>
+          <items>
+            <item idno="artwork" enabled="1" default="0">
+              <labels>
+                <label locale="en_AU" preferred="1">
+                  <name_singular>Artwork</name_singular>
+                  <name_plural>Artworks</name_plural>
+                </label>
+              </labels>
+            </item>
+            <item idno="costume" enabled="1" default="0">
+              <labels>
+                <label locale="en_AU" preferred="1">
+                  <name_singular>Costume</name_singular>
+                  <name_plural>Costumes</name_plural>
+                </label>
+              </labels>
+            </item>
+            <item idno="museumArtefact" enabled="1" default="0">
+              <labels>
+                <label locale="en_AU" preferred="1">
+                  <name_singular>Museum Artefact</name_singular>
+                  <name_plural>Museum Artefacts</name_plural>
+                </label>
+              </labels>
+            </item>
+          </items>
         </item>
         <item idno="library" enabled="1" default="0">
           <labels>
@@ -2877,12 +2903,13 @@
 
   <logins>
     <login user_name="administrator" password="administrator" fname="CollectiveAccess" lname="Administrator" email="administrator@rwahs.org.au">
-      <role code="admin"/>
       <group code="admin"/>
     </login>
     <login user_name="museum" password="museum" fname="Museum" lname="User" email="museum@rwahs.org.au">
       <role code="museum"/>
+      <role code="cataloguer"/>
       <group code="museum"/>
+      <group code="cataloguer"/>
     </login>
   </logins>
 </profile>
