@@ -493,7 +493,7 @@ class DisplayTemplateParserTest extends BaseTestWithData {
 		$vm_ret = DisplayTemplateParser::evaluate("URL: ^ca_objects.preferred_labels.name (^ca_objects.idno)", "ca_objects", array($this->opn_object_id), array('requireLinkTags' => false, 'returnAsArray' => true));
 		$this->assertInternalType('array', $vm_ret);
 		$this->assertCount(1, $vm_ret);
-		$this->assertContains("editor/objects/ObjectEditor/Summary/object_id/{$this->opn_object_id}'>URL: My test image (TEST.1)</a>", $vm_ret[0]);
+		$this->assertContains("editor/objects/ObjectEditor/Summary/object_id/{$this->opn_object_id}/rel/1'>URL: My test image (TEST.1)</a>", $vm_ret[0]);
 	}
 	# -------------------------------------------------------
 	public function testFormatsWithPlaceholderPrefixOption() {
