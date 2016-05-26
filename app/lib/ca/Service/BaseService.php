@@ -52,7 +52,6 @@ class BaseService {
 	public function auth($username="",$password=""){
 		if(($username != "") && ($password != "")){
 			$va_options = array(
-				'noPublicUsers' => true,
 				"no_headers" => true,
 				"dont_redirect" => true,
 				"options" => array(),
@@ -61,7 +60,6 @@ class BaseService {
 			);
 		} else {
 			$va_options = array(
-				'noPublicUsers' => true,
 				"no_headers" => true,
 				"dont_redirect" => true,
 				"options" => array()
