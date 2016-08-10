@@ -750,7 +750,7 @@
 						$vs_delimiter = ",";
 						$vs_output_file_name = mb_substr(preg_replace("/[^A-Za-z0-9\-]+/", '_', $ps_output_filename.'_csv'), 0, 30);
 						$vs_file_extension = 'csv';
-						$vs_mimetype = "text/comma-separated-values";
+						$vs_mimetype = "text/csv";
 						break;
 					case '_tab':
 						$vs_delimiter = "\t";	
