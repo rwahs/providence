@@ -395,7 +395,7 @@
 				$va_tag_list = $this->getTagListForView($va_template_info['path']);				// get list of tags in view
 				
 				$va_barcode_files_to_delete = array();
-				
+
 				$vn_page_count = 0;
 				while($po_result->nextHit()) {
 					$va_barcode_files_to_delete = array_merge($va_barcode_files_to_delete, caDoPrintViewTagSubstitution($this->view, $po_result, $va_template_info['path'], array('checkAccess' => $this->opa_access_values)));
@@ -433,9 +433,9 @@
 						}
 					}
 				}
-				
+
 				$vs_content .= $this->render("pdfEnd.php");
-				
+
 				$o_pdf->setPage(caGetOption('pageSize', $va_template_info, 'letter'), caGetOption('pageOrientation', $va_template_info, 'portrait'));
 				$o_pdf->render($vs_content, array('stream'=> true, 'filename' => caGetOption('filename', $va_template_info, 'labels.pdf')));
 
@@ -749,14 +749,15 @@
 					case '_csv':
 						$vs_delimiter = ",";
 						$vs_output_file_name = mb_substr(preg_replace("/[^A-Za-z0-9\-]+/", '_', $ps_output_filename.'_csv'), 0, 30);
-						$vs_file_extension = 'txt';
-						$vs_mimetype = "text/plain";
+						$vs_file_extension = 'csv';
+						$vs_mimetype = "text/csv";
 						break;
 					case '_tab':
 						$vs_delimiter = "\t";	
 						$vs_output_file_name = mb_substr(preg_replace("/[^A-Za-z0-9\-]+/", '_', $ps_output_filename.'_tab'), 0, 30);
-						$vs_file_extension = 'txt';
-						$vs_mimetype = "text/plain";
+						$vs_file_extension = 'tsv';
+						$vs_mimetype = "text/tab-separated-values";
+						break;
 					default:
 						break;
 				}
