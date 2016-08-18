@@ -357,7 +357,8 @@ class RwahsNavigationPluginIntegrationTest extends AbstractPluginIntegrationTest
 		);
 		$this->assertEquals(
 			array(
-				'reset' => 'preference:persistent_search'
+				'reset' => 'preference:persistent_search',
+				'type_id' => 'string:' . $this->_retrieveCreatedInstance('ca_list_items', 'type3')->getHierarchyRootID()
 			),
 			$va_nav_info['find']['navigation']['object_search']['parameters'],
 			'The basic object search shortcut obeys persistent search settings'

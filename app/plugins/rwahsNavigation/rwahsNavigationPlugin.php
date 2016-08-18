@@ -203,7 +203,7 @@ class rwahsNavigationPlugin extends BaseApplicationPlugin {
             ),
             'parameters' => array(
                 'reset' => 'preference:persistent_search',
-                'type_id' => 'string:' . caGetListRootID('object_types'),
+                'type_id' => 'string:' . caGetListRootID('object_types')
             )
         );
         $va_custom_items['object_browse'] = array(
