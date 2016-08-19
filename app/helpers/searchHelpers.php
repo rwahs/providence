@@ -516,6 +516,8 @@ require_once(__CA_MODELS_DIR__.'/ca_lists.php');
 		$vs_table = $t_subject->tableName();
 		$va_priority = $vo_query_builder_config->get('query_builder_priority_' . $vs_table);
 		$va_operators_by_type = $vo_query_builder_config->get('query_builder_operators');
+		$va_list_fields_search_by_value = $vo_query_builder_config->get('query_builder_list_fields_search_by_value');
+		$vs_list_key_field = in_array($vs_name, $va_list_fields_search_by_value) ? 'item_value': 'idno';
 		$va_field_info = $t_subject->getFieldInfo($vs_name_no_table);
 		$vn_display_type = null;
 		$vs_list_code = null;
@@ -590,7 +592,7 @@ require_once(__CA_MODELS_DIR__.'/ca_lists.php');
 				if (is_array($va_items)) {
 					foreach ($va_items as $va_item) {
 						foreach ($va_item as $va_item_details) {
-							$va_select_options[$va_item_details['idno']] = $va_item_details['name_singular'];
+							$va_select_options[$va_item_details[$vs_list_key_field]] = $va_item_details['name_singular'];
 						}
 					}
 				}
