@@ -72,7 +72,7 @@ var caUI = caUI || {};
 		if (ruleSet.operator && ruleSet.field) {
 			// Escape value to allow special characters
 			negation = ruleSet.operator.match(/not_/);
-			prefix = ruleSet.field + (negation ? ':-' : ':');
+			prefix = ruleSet.field + (negation ? ':!' : ':');
 			switch (negation ? ruleSet.operator.replace('not_', '') : ruleSet.operator) {
 				case 'equal':
 					return prefix + '"' + escapeValue(ruleSet.value) + '"';
@@ -81,15 +81,14 @@ var caUI = caUI || {};
 				case 'between':
 					return prefix + '[' + escapeValue(ruleSet.value[0]) + ' TO ' + escapeValue(ruleSet.value[1]) + ']';
 				case 'begins_with':
-					return prefix + '"' + escapeValue(ruleSet.value) + '"*';
+					return prefix + '' + escapeValue(ruleSet.value) + '*';
 				case 'contains':
 					return prefix + '*"' + escapeValue(ruleSet.value) + '"*';
 				case 'ends_with':
 					return prefix + '*"' + escapeValue(ruleSet.value) + '"';
 				case 'is_empty':
 				case 'is_null':
-					// "is_not_empty" is a double negative, so the negation prefix is applied in reverse.
-					return ruleSet.field + (!negation ? ':-' : ':') + '*';
+					return ruleSet.field + (negation ? ':*' : ':[BLANK]');
 			}
 			return ruleSet.field + ':' + ruleSet.value;
 		}
@@ -151,7 +150,7 @@ var caUI = caUI || {};
 				token = { type: TOKEN_COLON };
 				end = true;
 				break;
-			case '-':
+			case '!':
 				token = { type: TOKEN_NEGATION };
 				end = true;
 				break;
@@ -294,7 +293,7 @@ var caUI = caUI || {};
 	assignOperatorAndValue = function (rule, queryValue, negation, wildcardPrefix, wildcardSuffix) {
 		// Determine the operator that matches the given query, negation and wildcard positions.
 		if (!queryValue) {
-			rule.operator = negation ? 'is_empty' : 'is_not_empty';
+			rule.operator = negation ? 'is_not_empty' : 'is_empty';
 		} else {
 			rule.value = queryValue;
 			if (wildcardPrefix && wildcardSuffix) {
@@ -327,7 +326,7 @@ var caUI = caUI || {};
 	 * @return {Object}
 	 */
 	tokensToRuleSet = function (tokens) {
-		var rule, condition, negation, wildcardPrefix, wildcardSuffix, min, max, word, ruleSet;
+		var rule, condition, negation, wildcardPrefix, wildcardSuffix, tokenAfterBracket, max, word, ruleSet;
 		ruleSet = {
 			condition: undefined,
 			rules: []
@@ -359,20 +358,26 @@ var caUI = caUI || {};
 					negation = isNextToken(tokens, TOKEN_NEGATION);
 					if (isNextToken(tokens, TOKEN_LBRACKET)) {
 						// Between filter value (of the form `[minValue TO maxValue]`)
-						min = assertNextToken(tokens, TOKEN_WORD);
+						tokenAfterBracket = assertNextToken(tokens, TOKEN_WORD);
 						skipWhitespace(tokens);
-						assertNextToken(tokens, TOKEN_WORD, 'TO');
-						skipWhitespace(tokens);
-						max = assertNextToken(tokens, TOKEN_WORD);
-						assertNextToken(tokens, TOKEN_RBRACKET);
-						assignOperatorAndRange(rule, min.value, max.value, negation);
+						if (isNextToken(tokens, TOKEN_WORD, 'TO')) {
+							skipWhitespace(tokens);
+							max = assertNextToken(tokens, TOKEN_WORD);
+							assertNextToken(tokens, TOKEN_RBRACKET);
+							assignOperatorAndRange(rule, tokenAfterBracket.value, max.value, negation);
+						} else if (tokenAfterBracket.value === 'BLANK') {
+							assertNextToken(tokens, TOKEN_RBRACKET);
+							assignOperatorAndValue(rule, false, negation);
+						} else {
+							throw 'Unexpected token value "' + tokenAfterBracket.value + '" for token of type "' + tokenAfterBracket.type + '", expected "BLANK".';
+						}
 					} else {
-						// Other types can be a (quoted or unquoted) word, with optional wildcard prefix and/or suffix.
-						// Alternatively the word itself can be omitted, i.e. just a wildcard (`is_empty`/`is_not_empty`).
-						wildcardPrefix = isNextToken(tokens, TOKEN_WILDCARD);
+						// Other types can be a (quoted or unquoted) word and/or suffix.
+						// Alternatively the word itself can be omitted, i.e. just a wildcard (`is_not_empty`).
+						wildcardPrefix = false;
 						word = isNextToken(tokens, TOKEN_WORD);
 						wildcardSuffix = isNextToken(tokens, TOKEN_WILDCARD);
-						assignOperatorAndValue(rule, word ? word.value : undefined, negation, wildcardPrefix, wildcardSuffix);
+						assignOperatorAndValue(rule, word ? word.value : undefined, word ? negation : !negation, wildcardPrefix, wildcardSuffix);
 					}
 				}
 				skipWhitespace(tokens);
