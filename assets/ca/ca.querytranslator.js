@@ -369,7 +369,7 @@ var caUI = caUI || {};
 							assertNextToken(tokens, TOKEN_RBRACKET);
 							assignOperatorAndValue(rule, false, negation);
 						} else {
-							throw 'Unexpected token value "' + tokenAfterBracket.value + '" for token of type "' + tokenAfterBracket.type + '", expected "BLANK".';
+							throw 'Unexpected token value "' + tokenAfterBracket.value + '" for token of type "' + tokenAfterBracket.type + '", expected "BLANK" or a range like "0 TO 100".';
 						}
 					} else {
 						// Other types can be a (quoted or unquoted) word and/or suffix.
