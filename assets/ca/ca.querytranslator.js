@@ -81,7 +81,7 @@ var caUI = caUI || {};
 				case 'between':
 					return prefix + '[' + escapeValue(ruleSet.value[0]) + ' TO ' + escapeValue(ruleSet.value[1]) + ']';
 				case 'begins_with':
-					return prefix + '' + escapeValue(ruleSet.value) + '*';
+					return prefix + escapeValue(ruleSet.value) + '*';
 				case 'contains':
 					return prefix + '*"' + escapeValue(ruleSet.value) + '"*';
 				case 'ends_with':
