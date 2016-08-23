@@ -374,6 +374,8 @@ var caUI = caUI || {};
 					} else {
 						// Other types can be a (quoted or unquoted) word and/or suffix.
 						// Alternatively the word itself can be omitted, i.e. just a wildcard (`is_not_empty`).
+
+						// Disable wildcard prefix as CA doesn't support this kind of searching at the moment
 						wildcardPrefix = false;
 						word = isNextToken(tokens, TOKEN_WORD);
 						wildcardSuffix = isNextToken(tokens, TOKEN_WILDCARD);
