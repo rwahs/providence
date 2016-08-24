@@ -374,7 +374,7 @@ var caUI = caUI || {};
 						skipWhitespace(tokens);
 						if (isNextToken(tokens, TOKEN_WORD, 'TO')) {
 							// Between filter value (of the form `[minValue TO maxValue]`)
-							// This is a valid CA format, but will get converted to minValue-maxValue
+							// This is a valid CA format, but will get converted to "minValue"-"maxValue"
 							skipWhitespace(tokens);
 							max = assertNextToken(tokens, TOKEN_WORD);
 							assertNextToken(tokens, TOKEN_RBRACKET);
@@ -393,7 +393,7 @@ var caUI = caUI || {};
 						wildcardPrefix = false;
 						word = isNextToken(tokens, TOKEN_WORD);
 						if (isNextToken(tokens, TOKEN_HYPHEN)) {
-							// Between filter value (of the form `minValue-maxValue`)
+							// Between filter value (of the form `"minValue"-"maxValue"`)
 							// This is the format the the builder generates
 							skipWhitespace(tokens);
 							max = assertNextToken(tokens, TOKEN_WORD);
