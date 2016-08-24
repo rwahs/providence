@@ -37,7 +37,7 @@ var caUI = caUI || {};
 (function () {
 	var escapeValue, getTokenList, shiftToken, tokensToRuleSet,
 		assertNextToken, isNextToken, assertCondition, skipWhitespace, isRawSearchText,
-		assignOperatorAndValue, assignOperatorAndRange,
+		assignOperatorAndValue, assignOperatorAndRange, quoteValue,
 		TOKEN_WORD = 'WORD',
 		TOKEN_LPAREN = 'LPAREN',
 		TOKEN_RPAREN = 'RPAREN',
@@ -47,6 +47,7 @@ var caUI = caUI || {};
 		TOKEN_RBRACKET = 'RBRACKET',
 		TOKEN_WHITESPACE = 'WHITESPACE',
 		TOKEN_WILDCARD = 'WILDCARD',
+		TOKEN_HYPHEN = 'HYPHEN',
 		FIELD_FULLTEXT = '_fulltext';
 
 	/**
@@ -55,7 +56,15 @@ var caUI = caUI || {};
 	 * @returns {String}
 	 */
 	escapeValue = function (value) {
-		return value.replace(/([\-\+&\|!\(\)\{}\[\]\^"~\*\?:\\])/g, '\\$1');
+		return value.replace(/([\+&\|!\(\)\{}\[\]\^"~\*\?:\\])/g, '\\$1');
+	};
+	/**
+	 * Quote the user-entered field value.
+	 * @param {String} value
+	 * @returns {String}
+	 */
+	quoteValue = function (value) {
+		return '"' + value.trim().replace(/(")/g, '\\$1') + '"';
 	};
 
 	/**
@@ -75,17 +84,17 @@ var caUI = caUI || {};
 			prefix = ruleSet.field + (negation ? ':!' : ':');
 			switch (negation ? ruleSet.operator.replace('not_', '') : ruleSet.operator) {
 				case 'equal':
-					return prefix + '"' + escapeValue(ruleSet.value) + '"';
+					return prefix + quoteValue(ruleSet.value);
 				case 'in':
 					return prefix + '(' + escapeValue(ruleSet.value) + ')';
 				case 'between':
-					return prefix + '[' + escapeValue(ruleSet.value[0]) + ' TO ' + escapeValue(ruleSet.value[1]) + ']';
+					return prefix + quoteValue(ruleSet.value[0]) + '-' + quoteValue(ruleSet.value[1]);
 				case 'begins_with':
 					return prefix + escapeValue(ruleSet.value) + '*';
 				case 'contains':
-					return prefix + '*"' + escapeValue(ruleSet.value) + '"*';
+					return prefix + '*' + quoteValue(ruleSet.value) + '*';
 				case 'ends_with':
-					return prefix + '*"' + escapeValue(ruleSet.value) + '"';
+					return prefix + '*' + quoteValue(ruleSet.value);
 				case 'is_empty':
 				case 'is_null':
 					return ruleSet.field + (negation ? ':*' : ':[BLANK]');
@@ -165,6 +174,10 @@ var caUI = caUI || {};
 			case '"':
 				token = { type: TOKEN_WORD, value: '' };
 				quoted = true;
+				break;
+			case '-':
+				token = { type: TOKEN_HYPHEN, value: '-' };
+				end = true;
 				break;
 			default:
 				// Beginning of a plain word, which ends before then next non-word character.
@@ -357,10 +370,11 @@ var caUI = caUI || {};
 					assertNextToken(tokens, TOKEN_COLON);
 					negation = isNextToken(tokens, TOKEN_NEGATION);
 					if (isNextToken(tokens, TOKEN_LBRACKET)) {
-						// Between filter value (of the form `[minValue TO maxValue]`)
 						tokenAfterBracket = assertNextToken(tokens, TOKEN_WORD);
 						skipWhitespace(tokens);
 						if (isNextToken(tokens, TOKEN_WORD, 'TO')) {
+							// Between filter value (of the form `[minValue TO maxValue]`)
+							// This is a valid CA format, but will get converted to minValue-maxValue
 							skipWhitespace(tokens);
 							max = assertNextToken(tokens, TOKEN_WORD);
 							assertNextToken(tokens, TOKEN_RBRACKET);
@@ -378,8 +392,16 @@ var caUI = caUI || {};
 						// Disable wildcard prefix as CA doesn't support this kind of searching at the moment
 						wildcardPrefix = false;
 						word = isNextToken(tokens, TOKEN_WORD);
-						wildcardSuffix = isNextToken(tokens, TOKEN_WILDCARD);
-						assignOperatorAndValue(rule, word ? word.value : undefined, word ? negation : !negation, wildcardPrefix, wildcardSuffix);
+						if (isNextToken(tokens, TOKEN_HYPHEN)) {
+							// Between filter value (of the form `minValue-maxValue`)
+							// This is the format the the builder generates
+							skipWhitespace(tokens);
+							max = assertNextToken(tokens, TOKEN_WORD);
+							assignOperatorAndRange(rule, word.value, max.value, negation);
+						} else {
+							wildcardSuffix = isNextToken(tokens, TOKEN_WILDCARD);
+							assignOperatorAndValue(rule, word ? word.value : undefined, word ? negation : !negation, wildcardPrefix, wildcardSuffix);
+						}
 					}
 				}
 				skipWhitespace(tokens);
