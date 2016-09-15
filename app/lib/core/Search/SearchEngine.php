@@ -149,7 +149,7 @@ class SearchEngine extends SearchBase {
 		if(($vn_limit = caGetOption('limit', $pa_options, null, array('castTo' => 'int'))) < 0) { $vn_limit = null; }
 		$vs_sort = caGetOption('sort', $pa_options, null);
 		$vs_sort_direction = strtolower(caGetOption('sortDirection', $pa_options, caGetOption('sort_direction', $pa_options, null)));
-		
+
 		//print "QUERY=$ps_search<br>";
 		//
 		// Note that this is *not* misplaced code that should be in the Lucene plugin!
@@ -397,7 +397,7 @@ class SearchEngine extends SearchBase {
 				$va_items = array();
 				break;
 		}
-		
+
 		if (method_exists($po_query, 'getSigns')) {
 			$va_old_signs = $po_query->getSigns();
 		} else {
@@ -409,40 +409,24 @@ class SearchEngine extends SearchBase {
 			switch(get_class($o_term)) {
 				case 'Zend_Search_Lucene_Search_Query_Preprocessing_Term':
 					$va_terms[] = new Zend_Search_Lucene_Search_Query_Term(new Zend_Search_Lucene_Index_Term($o_term->__toString()));
-					$va_signs[] = array_key_exists($va_old_signs, $vn_i) ? $va_old_signs[$vn_i] : true;
+					$va_signs[] = array_key_exists($vn_i, $va_old_signs) ? $va_old_signs[$vn_i] : true;
 					break;
 				case 'Zend_Search_Lucene_Search_Query_Term':
-					$va_rewritten_terms = $this->_rewriteTerm($o_term, $va_old_signs[$vn_i]);
-					if (sizeof($va_rewritten_terms['terms']) == 1) {
-						$va_terms[] = new Zend_Search_Lucene_Search_Query_Term(array_shift($va_rewritten_terms['terms']));
-						$va_signs[] = array_shift($va_rewritten_terms['signs']);
-					} else { 
-						for($vn_j = 0; $vn_j < sizeof($va_rewritten_terms['terms']); $vn_j++) {
-							$va_terms[] = new Zend_Search_Lucene_Search_Query_MultiTerm(array($va_rewritten_terms['terms'][$vn_j]), array($va_rewritten_terms['signs'][$vn_j]));
-							$va_signs[] = $va_rewritten_terms['signs'][$vn_j] ? true : is_null($va_rewritten_terms['signs'][$vn_j]) ? null : false;
-						}
-					}
+					$va_terms[] = $this->_rewriteTerm($o_term, $va_old_signs[$vn_i]);
+					$va_signs[] = $va_old_signs[$vn_i];
 					break;
 				case 'Zend_Search_Lucene_Index_Term':
-					$va_rewritten_terms = $this->_rewriteTerm(new Zend_Search_Lucene_Search_Query_Term($o_term), $va_old_signs[$vn_i]);
-					if (sizeof($va_rewritten_terms['terms']) == 1) {
-						$o_mt = new Zend_Search_Lucene_Search_Query_Term($va_rewritten_terms['terms'][0]);
-					} else {
-						$o_mt = new Zend_Search_Lucene_Search_Query_MultiTerm($va_rewritten_terms['terms'], $va_rewritten_terms['signs']);
-					}
-					$va_terms[] = $o_mt;
-					$va_signs[] = sizeof($va_rewritten_terms['signs']) ? array_shift($va_rewritten_terms['signs']): true;
+					$va_terms[] = $this->_rewriteTerm($o_term, $va_old_signs[$vn_i]);
+					$va_signs[] = $va_old_signs[$vn_i];
 					break;
 				case 'Zend_Search_Lucene_Search_Query_Wildcard':
-					$va_rewritten_terms = $this->_rewriteTerm(new Zend_Search_Lucene_Search_Query_Term($o_term->getPattern()), $va_old_signs[$vn_i]);
-					$o_mt = new Zend_Search_Lucene_Search_Query_MultiTerm($va_rewritten_terms['terms'], $va_rewritten_terms['signs']);
-					$va_terms[] = $o_mt;
-					$va_signs[] = sizeof($va_rewritten_terms['signs']) ? array_shift($va_rewritten_terms['signs']): true;
+					$va_terms[] = $this->_rewriteTerm(new Zend_Search_Lucene_Search_Query_Term($o_term->getPattern()), $va_old_signs[$vn_i]);
+					$va_signs[] = $va_old_signs[$vn_i];
 					break;
 				case 'Zend_Search_Lucene_Search_Query_Phrase':
 					$va_phrase_items = $o_term->getTerms();
 					$va_rewritten_phrase = $this->_rewritePhrase($o_term, $va_old_signs[$vn_i]);
-					
+
 					foreach($va_rewritten_phrase['terms'] as $o_term) {
 						$va_terms[] = $o_term;
 					}
@@ -486,7 +470,7 @@ class SearchEngine extends SearchBase {
 	/**
 	 * @param $po_term - term to rewrite; must be Zend_Search_Lucene_Search_Query_Term object
 	 * @param $pb_sign - Zend boolean flag (true=and, null=or, false=not)
-	 * @return array - rewritten terms are *** Zend_Search_Lucene_Index_Term *** objects
+	 * @return Zend_Search_Lucene_Search_Query_MultiTerm
 	 */
 	private function _rewriteTerm($po_term, $pb_sign) {
 		$vs_fld = $po_term->getTerm()->field;
@@ -501,12 +485,12 @@ class SearchEngine extends SearchBase {
 				if (!in_array($vs_bool = strtoupper($va_ap_info['boolean']), array('AND', 'OR'))) {
 					$vs_bool = 'OR';
 				}
-				
+
 				$va_terms = array();
 				$vs_term = (string)$po_term->getTerm()->text;
 				foreach($va_fields as $vs_field) {
 					$va_tmp = explode(".", $vs_field);
-					
+
 					// Rewrite FT_BIT fields to accept yes/no values
 					if ($this->opo_datamodel->getFieldInfo($va_tmp[0], $va_tmp[1], 'FIELD_TYPE') == FT_BIT) {
 						switch(mb_strtolower($vs_term)) {
@@ -525,10 +509,10 @@ class SearchEngine extends SearchBase {
 						$vs_term .= '|';
 					}
 					$va_terms['terms'][] = new Zend_Search_Lucene_Index_Term($vs_term, $vs_field);
-					$va_terms['signs'][] = ($vs_bool == 'AND') ? true : null;
+					$va_terms['signs'][] = ($vs_bool === 'AND') ? true : null;
 					$va_terms['options'][] = is_array($va_ap_info['options']) ? $va_ap_info['options'] : array();
 				}
-				
+
 				if (is_array($va_additional_criteria = $va_ap_info['additional_criteria'])) {
 					foreach($va_additional_criteria as $vs_criterion) {
 						$va_terms['terms'][] = new Zend_Search_Lucene_Index_Term($vs_criterion);
@@ -536,9 +520,8 @@ class SearchEngine extends SearchBase {
 						$va_terms['options'][] = is_array($va_ap_info['options']) ? $va_ap_info['options'] : array();
 					}
 				}
-				
-				if (sizeof($va_terms['signs']) > 0) { array_pop($va_terms['signs']); }
-				return $va_terms;
+
+				return new Zend_Search_Lucene_Search_Query_MultiTerm($va_terms['terms'], $va_terms['signs']);
 			}
 		}
 		
@@ -548,16 +531,15 @@ class SearchEngine extends SearchBase {
 		if (in_array($va_tmp2[1], array('preferred_labels', 'nonpreferred_labels'))) {
 			if ($t_instance = $this->opo_datamodel->getInstanceByTableName($va_tmp2[0], true)) {
 				if (method_exists($t_instance, "getLabelTableName")) {
-					return array(
-						'terms' => array(new Zend_Search_Lucene_Index_Term($po_term->getTerm()->text, $t_instance->getLabelTableName().'.'.((isset($va_tmp2[2]) && $va_tmp2[2]) ? $va_tmp2[2] : $t_instance->getLabelDisplayField()).($va_tmp[1] ? '/'.$va_tmp[1] : ''))),
-						'signs' => array($pb_sign),
-						'options' => array()
+					return new Zend_Search_Lucene_Search_Query_MultiTerm(
+						array(new Zend_Search_Lucene_Index_Term($po_term->getTerm()->text, $t_instance->getLabelTableName().'.'.((isset($va_tmp2[2]) && $va_tmp2[2]) ? $va_tmp2[2] : $t_instance->getLabelDisplayField()).($va_tmp[1] ? '/'.$va_tmp[1] : ''))),
+						array($pb_sign)
 					);
 				}
 			}
 		}
 		
-		return array('terms' => array($po_term->getTerm()), 'signs' => array($pb_sign), 'options' => array());
+		return new Zend_Search_Lucene_Search_Query_MultiTerm(array($po_term->getTerm()), array($pb_sign));
 	}
 	# ------------------------------------------------------------------
 	/**
