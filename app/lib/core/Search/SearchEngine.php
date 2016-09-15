@@ -470,7 +470,7 @@ class SearchEngine extends SearchBase {
 	/**
 	 * @param $po_term - term to rewrite; must be Zend_Search_Lucene_Search_Query_Term object
 	 * @param $pb_sign - Zend boolean flag (true=and, null=or, false=not)
-	 * @return Zend_Search_Lucene_Search_Query_MultiTerm
+	 * @return Zend_Search_Lucene_Search_Query
 	 */
 	private function _rewriteTerm($po_term, $pb_sign) {
 		$vs_fld = $po_term->getTerm()->field;
@@ -521,7 +521,9 @@ class SearchEngine extends SearchBase {
 					}
 				}
 
-				return new Zend_Search_Lucene_Search_Query_MultiTerm($va_terms['terms'], $va_terms['signs']);
+				return sizeof($va_terms) === 1 ?
+					new Zend_Search_Lucene_Search_Query_Term($va_terms['terms'][0], $va_terms['signs'][0]) :
+					new Zend_Search_Lucene_Search_Query_MultiTerm($va_terms['terms'], $va_terms['signs']);
 			}
 		}
 		
@@ -531,15 +533,15 @@ class SearchEngine extends SearchBase {
 		if (in_array($va_tmp2[1], array('preferred_labels', 'nonpreferred_labels'))) {
 			if ($t_instance = $this->opo_datamodel->getInstanceByTableName($va_tmp2[0], true)) {
 				if (method_exists($t_instance, "getLabelTableName")) {
-					return new Zend_Search_Lucene_Search_Query_MultiTerm(
-						array(new Zend_Search_Lucene_Index_Term($po_term->getTerm()->text, $t_instance->getLabelTableName().'.'.((isset($va_tmp2[2]) && $va_tmp2[2]) ? $va_tmp2[2] : $t_instance->getLabelDisplayField()).($va_tmp[1] ? '/'.$va_tmp[1] : ''))),
-						array($pb_sign)
+					return new Zend_Search_Lucene_Search_Query_Term(
+						new Zend_Search_Lucene_Index_Term($po_term->getTerm()->text, $t_instance->getLabelTableName().'.'.((isset($va_tmp2[2]) && $va_tmp2[2]) ? $va_tmp2[2] : $t_instance->getLabelDisplayField()).($va_tmp[1] ? '/'.$va_tmp[1] : '')),
+						$pb_sign
 					);
 				}
 			}
 		}
 		
-		return new Zend_Search_Lucene_Search_Query_MultiTerm(array($po_term->getTerm()), array($pb_sign));
+		return new Zend_Search_Lucene_Search_Query_Term($po_term->getTerm(), $pb_sign);
 	}
 	# ------------------------------------------------------------------
 	/**
