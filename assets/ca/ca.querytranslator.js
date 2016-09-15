@@ -35,7 +35,7 @@ var caUI = caUI || {};
  * `greater_than` or `less_than`.
  */
 (function () {
-	var escapeValue, getTokenList, shiftToken, tokensToRuleSet,
+	var escapeValue, hasRedundantParentheses, getTokenList, shiftToken, tokensToRuleSet,
 		assertNextToken, isNextToken, assertCondition, skipWhitespace, isRawSearchText,
 		assignOperatorAndValue, assignOperatorAndRange, quoteValue,
 		TOKEN_WORD = 'WORD',
@@ -105,6 +105,34 @@ var caUI = caUI || {};
 	};
 
 	/**
+	 * Detect the presence of additional, redundant parentheses at the edges of the token list.  For example, the query
+	 * `((a AND b) or (c AND d))` has a single pair of redundant parentheses.
+	 * @param {Array} tokens
+	 * @return {Boolean}
+     */
+	hasRedundantParentheses = function (tokens) {
+		var i, nesting;
+		// Basic test, there must be at least 2 tokens, the first is a left paren and the last is a right paren.
+		if (tokens.length < 2 || tokens[0].type !== TOKEN_LPAREN || tokens[tokens.length - 1].type !== TOKEN_RPAREN) {
+			return false;
+		}
+		// Additionally, these edge parentheses must be a matching pair, e.g. `(a) AND (b)` has parentheses at the
+		// start and end, but they are not a matching pair.
+		for (i = 0, nesting = 0; i < tokens.length; ++i) {
+			if (tokens[i].type === TOKEN_LPAREN) {
+				++nesting;
+			}
+			if (tokens[i].type === TOKEN_RPAREN) {
+				--nesting;
+				if (nesting === 0 && i < tokens.length - 1) {
+					return false;
+				}
+			}
+		}
+		return true;
+	};
+
+	/**
 	 * Retrieve the list of tokens from the given query string.
 	 * @param {String} query
 	 * @return {Array}
@@ -115,7 +143,7 @@ var caUI = caUI || {};
 		while (token = shiftToken(queryArray)) {
 			tokens.push(token);
 		}
-		while (tokens.length >= 2 && tokens[0].type === TOKEN_LPAREN && tokens[tokens.length - 1].type === TOKEN_RPAREN) {
+		while (hasRedundantParentheses(tokens)) {
 			tokens = tokens.slice(1, tokens.length - 1);
 		}
 		return tokens;
