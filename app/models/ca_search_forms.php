@@ -1188,15 +1188,16 @@ class ca_search_forms extends BundlableLabelableBaseModelWithAttributes {
 					if(isset($va_element['settings']['hidden_field_name']) && isset($va_element['settings']['hidden_field_value'])){
 						$vs_name = strip_tags($va_element['settings']['hidden_field_name']);
 						$vs_value = strip_tags($va_element['settings']['hidden_field_value']);
-						$va_output[] = array(
-							'element' => caHTMLHiddenInput(
-								$vs_name, array(
-									'value' => $vs_value,
-								)
-							),
-							'label' => $vs_field_label,
-							'name' => $va_element['bundle_name']
-						);
+						$va_output[] =
+							array(
+								'element' => caHTMLHiddenInput(
+									$vs_name, array(
+										'value' => $vs_value,
+									)
+								),
+								'label' => $vs_field_label,
+								'name' => $va_element['bundle_name']
+							);
 					}
 					continue(2);
 			}
