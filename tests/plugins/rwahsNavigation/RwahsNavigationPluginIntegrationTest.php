@@ -256,7 +256,7 @@ class RwahsNavigationPluginIntegrationTest extends AbstractPluginIntegrationTest
 		);
 		$this->assertEquals(
 			array(
-				'type_id' => 'string:' . $this->_retrieveCreatedInstance('ca_list_items', 'type1')->getPrimaryKey(),
+				'type_id' => 'string:' . $this->_retrieveCreatedInstance('ca_list_items', 'type1')->getHierarchyRootID(),
 				'form_id' => 'string:' . $this->_retrieveCreatedInstance('ca_search_forms', 'type1_search')->getPrimaryKey(),
 				'display_id' => 'string:' . $this->_retrieveCreatedInstance('ca_bundle_displays', 'result_display')->getPrimaryKey(),
 				'reset' => 'preference:persistent_search'
@@ -290,7 +290,7 @@ class RwahsNavigationPluginIntegrationTest extends AbstractPluginIntegrationTest
 		);
 		$this->assertEquals(
 			array(
-				'type_id' => 'string:' . $this->_retrieveCreatedInstance('ca_list_items', 'type2')->getPrimaryKey(),
+				'type_id' => 'string:' . $this->_retrieveCreatedInstance('ca_list_items', 'type2')->getHierarchyRootID(),
 				'form_id' => 'string:' . $this->_retrieveCreatedInstance('ca_search_forms', 'type2_search')->getPrimaryKey(),
 				'display_id' => 'string:' . $this->_retrieveCreatedInstance('ca_bundle_displays', 'result_display')->getPrimaryKey(),
 				'reset' => 'preference:persistent_search'
@@ -324,7 +324,7 @@ class RwahsNavigationPluginIntegrationTest extends AbstractPluginIntegrationTest
 		);
 		$this->assertEquals(
 			array(
-				'type_id' => 'string:' . $this->_retrieveCreatedInstance('ca_list_items', 'type3')->getPrimaryKey(),
+				'type_id' => 'string:' . $this->_retrieveCreatedInstance('ca_list_items', 'type3')->getHierarchyRootID(),
 				'form_id' => 'string:' . $this->_retrieveCreatedInstance('ca_search_forms', 'type3_search')->getPrimaryKey(),
 				'display_id' => 'string:' . $this->_retrieveCreatedInstance('ca_bundle_displays', 'result_display')->getPrimaryKey(),
 				'reset' => 'preference:persistent_search'
