@@ -135,6 +135,7 @@ class rwahsNavigationPlugin extends BaseApplicationPlugin {
     private function _getCustomSearchMenuItems() {
         $va_custom_items = array();
         $va_shortcuts = $this->opo_config->get('search_menu_shortcuts');
+        $vs_root = 'string:' . caGetListRootID('object_types');
         if (is_array($va_shortcuts)) {
             foreach ($va_shortcuts as $vs_key => $va_shortcut) {
                 if (!isset($va_shortcut['type_code']) || !isset($va_shortcut['form_code']) || !isset($va_shortcut['display_code'])) {
@@ -183,7 +184,7 @@ class rwahsNavigationPlugin extends BaseApplicationPlugin {
                         'action' => 'Index'
                     ),
                     'parameters' => array(
-                        'type_id' => 'string:' . $vo_type->getPrimaryKey(),
+                        'type_id' => $vs_root,
                         'form_id' => 'string:' . $vn_form_id,
                         'display_id' => 'string:' . $vn_bundle_display_id,
                         'reset' => 'preference:persistent_search'
@@ -203,7 +204,7 @@ class rwahsNavigationPlugin extends BaseApplicationPlugin {
             ),
             'parameters' => array(
                 'reset' => 'preference:persistent_search',
-                'type_id' => 'string:' . caGetListRootID('object_types')
+                'type_id' => $vs_root
             )
         );
         $va_custom_items['object_browse'] = array(
