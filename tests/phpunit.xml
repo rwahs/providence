@@ -34,13 +34,14 @@
     <testsuite name="Plugins Test Suite">
       <directory>plugins/</directory>
     </testsuite>
-    <testsuite name="Install Test Suite">
-      <directory>install/</directory>
-    </testsuite>
     <testsuite name="Tests With Data Suite">
       <directory>testsWithData/</directory>
       <exclude>./testsWithData/get/AttributeGetTest.php</exclude>
       <exclude>./testsWithData/get/GettyGetTest.php</exclude>
+    </testsuite>
+    <testsuite name="Install Test Suite">
+      <directory>install/</directory>
+      <exclude>install/ConfigurationUpdateTest.php</exclude>
     </testsuite>
   </testsuites>
 
