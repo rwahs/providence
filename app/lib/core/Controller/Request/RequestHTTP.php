@@ -173,7 +173,6 @@ class RequestHTTP extends Request {
 
 			if($_SERVER["PHP_AUTH_USER"] && $_SERVER["PHP_AUTH_PW"]){
 				$this->doAuthentication(array(
-					'noPublicUsers' => true,
 					"no_headers" => true,
 					"dont_redirect" => true,
 					"options" => array(),
